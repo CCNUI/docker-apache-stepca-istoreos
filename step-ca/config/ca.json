@@ -1,0 +1,55 @@
+{
+	"root": "/home/step/certs/root_ca.crt",
+	"federatedRoots": null,
+	"crt": "/home/step/certs/intermediate_ca.crt",
+	"key": "/home/step/secrets/intermediate_ca_key",
+	"address": ":9000",
+	"insecureAddress": "",
+	"dnsNames": [
+		"ca.ccn.asuscomm.com",
+		"ccn.asuscomm.com",
+		"ca.uzt.cc",
+		"10.152.6.3"
+	],
+	"logger": {
+		"format": "text"
+	},
+	"db": {
+		"type": "badgerv2",
+		"dataSource": "/home/step/db",
+		"badgerFileLoadingMode": ""
+	},
+	"authority": {
+		"provisioners": [
+			{
+				"type": "JWK",
+				"name": "admin@internal.lan",
+				"key": {
+					"use": "sig",
+					"kty": "EC",
+					"kid": "Vl_sr2djb4u-kYPwCsb-RBFE3VPoVZicuyvsxtaWt2Y",
+					"crv": "P-256",
+					"alg": "ES256",
+					"x": "YaQuQBDj9oCkb6pZy73IM7RvuHI_YS1VQpGs0mh2r0M",
+					"y": "3i28fPnSljOhqIaNjSpAsqdX-kZd3bCUAmVgdTK0-EA"
+				},
+				"encryptedKey": "eyJhbGciOiJQQkVTMi1IUzI1NitBMTI4S1ciLCJjdHkiOiJqd2sranNvbiIsImVuYyI6IkEyNTZHQ00iLCJwMmMiOjYwMDAwMCwicDJzIjoiMUFvZ1hyUjBIZ3JBWF9DX1FGX09zZyJ9.VfQpsS4umI1EMmVyB_vD25Jx15m6edqbCgwC4MtF6lwhmVS1f7q2Ww.FQKvfz1tU5SxlyST.rO-BVhMBueXSK91K1j4IWvOw0h8GkqTSDI_DoKWbxs7lZYTEFwvn-FIvE6h2N2XV8CJi1lnz3_P5efD8j0iq5ePGXIqVKQfej1S-vMkeaz5j2lYv17WYmGzf5QWJ7MidzTkgAtZmgT-hDqvWN1ovjS-W-KS_RyqpuEyDHb7cIm9syONLNxyjRH-Tsf2osAug9xUneBnP07FReyu1OXMZiRn0d8-LcN8NZnvOe0kKQxy3aeWvE5SlgM94LNeWZavzhXrJMWZ47x8Avei7R3qTdJQf_YEeUAlPFgsATgM5KFFH7Gp5rY7Yfr0DmF1f4htbABRhwYnTvjSiQt8Nh10.qkCt2yMLXJqV05SF05KXbA",
+				"claims": {
+					"minTLSCertDuration": "5m0s",
+					"maxTLSCertDuration": "8760h0m0s",
+					"defaultTLSCertDuration": "24h0m0s",
+					"disableRenewal": false
+				}
+			}
+		]
+	},
+	"tls": {
+		"cipherSuites": [
+			"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",
+			"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+		],
+		"minVersion": 1.2,
+		"maxVersion": 1.3,
+		"renegotiation": false
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"ca-url": "https://ca.ccn.asuscomm.com:9000",
+	"ca-config": "/home/step/config/ca.json",
+	"fingerprint": "82d11af5653686e05a9b51180ff5cc36df7782e11832f7818dccc8cf89a3e8c1",
+	"root": "/home/step/certs/root_ca.crt"
+}

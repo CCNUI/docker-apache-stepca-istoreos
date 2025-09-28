@@ -1,0 +1,44 @@
+# /mnt/data/apache_web_server/docker-compose.yml
+# Final production configuration
+
+version: '3.8'
+
+services:
+  apache:
+    build:
+      context: ./apache
+    container_name: apache_web_server
+    restart: unless-stopped
+    ports:
+      - "81:80"
+      - "444:443"
+    volumes:
+      - ./apache/htdocs:/usr/local/apache2/htdocs/
+      - ./apache/cgi-bin:/usr/local/apache2/cgi-bin/
+      - ./apache/conf/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./apache/conf/extra:/usr/local/apache2/conf/extra/
+      - ./apache/logs:/usr/local/apache2/logs/
+      - ./apache/webdav:/usr/local/apache2/webdav/
+      - ./step-ca/certs/apache:/usr/local/apache2/conf/certs/
+    depends_on:
+      - ca
+    networks:
+      - web_net
+
+  ca:
+    image: smallstep/step-ca:latest
+    container_name: certificate_authority
+    restart: unless-stopped
+    volumes:
+      - ./step-ca:/home/step
+    environment:
+      STEPPATH: /home/step
+      STEP_CA_PASSWORD_FILE: /home/step/secrets/password
+    extra_hosts:
+      - "ca.ccn.asuscomm.com:127.0.0.1"
+    networks:
+      - web_net
+
+networks:
+  web_net:
+    driver: bridge
