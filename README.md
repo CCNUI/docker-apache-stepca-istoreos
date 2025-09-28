@@ -1,7 +1,7 @@
 ```markdown
 # Docker Apache + Python + WebDAV + Step-CA on iStoreOS/OpenWRT
 
-一套完整的 Docker Compose 方案，用于在 iStoreOS/OpenWRT 等嵌入式Linux系统上快速部署一个安全、强大的 Apache, Python, WebDAV 及私有CA (Step-CA) 服务器。
+【最后一步Apache未能验证成功，其它的都正常】一套完整的 Docker Compose 方案，用于在 iStoreOS/OpenWRT 等嵌入式Linux系统上快速部署一个安全、强大的 Apache, Python, WebDAV 及私有CA (Step-CA) 服务器。
 
 该项目是解决一系列真实部署挑战后的最终成果，特别适合希望在软路由、NAS等设备上搭建功能全面的个人或团队 Web 服务的用户。
 
